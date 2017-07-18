@@ -31,12 +31,13 @@ class WikiObserver(PrivMsgObserverPrototype):
             page = wikipedia.WikipediaPage(error.args[1][0])
         connection.send_back(data['nick'] + ' ' + page.url, data)
 
-        if (page.summary.find('lat. ') or
-            page.summary.find('gr. ') or
-            page.summary.find('fr. ') or
-            page.summary.find('eng. ') or
-            page.summary.find('engl. ') or
-            page.summary.find('bzw. ') < 230: #TODO beliebig ergänzen
+        no_good=['lat. ', 'gr. ', 'fr. ', 'eng. ', 'engl. ', 'bzw. '] #TODO beliebig ergänzen
+        Wacky_summary = False
+        for item in no_good:
+            if page.summary.find(item) < 230 and page.summary.find(item) > 0:
+                Wacky_summary = True
+
+        if Wacky_summary:
             index = -1 # TODO Intelligenter machen für sehr sehr seltene Fälle
         else:
             index = 1 + page.summary.find('. ')
@@ -45,4 +46,3 @@ class WikiObserver(PrivMsgObserverPrototype):
             connection.send_back(page.summary[0:230], data)
         else:
             connection.send_back(page.summary[0:index], data)
-            

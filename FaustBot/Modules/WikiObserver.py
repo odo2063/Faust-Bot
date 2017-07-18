@@ -18,9 +18,10 @@ class WikiObserver(PrivMsgObserverPrototype):
                 query += word + ' '
         w = wikipedia.search(query)
         if w.__len__() == 0:  # TODO BUG BELOW, ERROR MESSAGE NOT SHOWN!
-            connection.send_back(data['nick'] + ', ' +
+            connection.send_back(data['nick'] +
+                                 ', ' +
                                  i18n_server.get_text('wiki_fail',
-                                                      lang=self.config.lang),
+                                 lang=self.config.lang),
                                  data)
             return
         try:
@@ -29,8 +30,20 @@ class WikiObserver(PrivMsgObserverPrototype):
             print('disambiguation page')
             page = wikipedia.WikipediaPage(error.args[1][0])
         connection.send_back(data['nick'] + ' ' + page.url, data)
-        index = 51 + page.summary[50:230].find('. ')
+
+        if (page.summary.find('lat. ') or
+            page.summary.find('gr. ') or
+            page.summary.find('fr. ') or
+            page.summary.find('eng. ') or
+            page.summary.find('engl. ') or
+            page.summary.find('bzw. ') or
+            page.summary.find('TODO ergänzen')) << 230:
+            index = -1 # TODO Intelligenter machen für sehr sehr seltene Fälle
+        else:
+            index = 1 + page.summary.find('. ')
+
         if index == -1 or index > 230:
             connection.send_back(page.summary[0:230], data)
         else:
             connection.send_back(page.summary[0:index], data)
+            

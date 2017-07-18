@@ -37,7 +37,7 @@ class WikiObserver(PrivMsgObserverPrototype):
                  'fr. ',
                  'eng. ',
                  'engl. ',
-                 'bzw. '] # TODO beliebig ergänzen
+                 'bzw. ']  # TODO beliebig ergänzen
 
         wacky_summary = False
         for item in no_good:
@@ -45,7 +45,7 @@ class WikiObserver(PrivMsgObserverPrototype):
                 wacky_summary = True
 
         if wacky_summary:
-            index = -1 # TODO Intelligenter machen für sehr sehr seltene Fälle
+            index = -1  # TODO Intelligenter machen für sehr sehr seltene Fälle
         else:
             index = 1 + page.summary.find('. ')
 

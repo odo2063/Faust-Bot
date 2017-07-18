@@ -10,7 +10,8 @@ class WikiObserver(PrivMsgObserverPrototype):
         if data['message'].find('.w ') == -1:
             return
         i18n_server = i18n()
-        w = wikipedia.set_lang(i18n_server.get_text('wiki_lang', lang=self.config.lang))
+        w = wikipedia.set_lang(i18n_server.get_text('wiki_lang',
+                                                    lang=self.config.lang))
         q = data['message'].split(' ')
         query = ''
         for word in q:
@@ -31,13 +32,19 @@ class WikiObserver(PrivMsgObserverPrototype):
             page = wikipedia.WikipediaPage(error.args[1][0])
         connection.send_back(data['nick'] + ' ' + page.url, data)
 
-        no_good=['lat. ', 'gr. ', 'fr. ', 'eng. ', 'engl. ', 'bzw. '] #TODO beliebig ergänzen
-        Wacky_summary = False
+        no_good=['lat. ',
+                 'gr. ',
+                 'fr. ',
+                 'eng. ',
+                 'engl. ',
+                 'bzw. '] #TODO beliebig ergänzen
+
+        wacky_summary = False
         for item in no_good:
             if page.summary.find(item) < 230 and page.summary.find(item) > 0:
-                Wacky_summary = True
+                wacky_summary = True
 
-        if Wacky_summary:
+        if wacky_summary:
             index = -1 # TODO Intelligenter machen für sehr sehr seltene Fälle
         else:
             index = 1 + page.summary.find('. ')

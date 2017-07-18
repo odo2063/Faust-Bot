@@ -37,7 +37,20 @@ class WikiObserver(PrivMsgObserverPrototype):
                  'fr. ',
                  'eng. ',
                  'engl. ',
-                 'bzw. ']  # TODO beliebig ergänzen
+                 'bzw. ',
+                 '. Jannuar',
+                 '. Februar',
+                 '. Maerz',
+                 '. März',
+                 '. April',
+                 '. Mai',
+                 '. Juni',
+                 '. Juli',
+                 '. August',
+                 '. September',
+                 '. Oktober',
+                 '. November',
+                 '. Dezember']  # TODO beliebig ergänzen
 
         wacky_summary = False
         for item in no_good:

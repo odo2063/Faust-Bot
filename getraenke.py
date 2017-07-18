@@ -1,4 +1,4 @@
-getraenke = ['einen Kaffe','eine Limonade','einen Kakao','einen Tee',
+getraenke = ['einen Kaffe']#,'eine Limonade','einen Kakao','einen Tee',
                      'einen Kräutertee aus elians Garten','eine Cola',
                      'kaltes Wasser','kalten Eistee','einen Raktajino',
                      'frischen Mate', 'eine Club Mate','ein Glas Gurkenwasser',
@@ -24,3 +24,5 @@ getraenke = ['einen Kaffe','eine Limonade','einen Kakao','einen Tee',
                      'ein Butterbier', 'ein Glass Laktosefreie Milch',
                      'einen Lebertran', 'eine Caprisonne',
                      'ein Moloko-Plus']
+
+getraenke_after_work = ['einen pangalaktischen Donnergurgler', 'ein barel Madensirup', 'einen Becher Blutwein']

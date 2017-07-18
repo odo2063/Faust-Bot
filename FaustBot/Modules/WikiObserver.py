@@ -36,8 +36,7 @@ class WikiObserver(PrivMsgObserverPrototype):
             page.summary.find('fr. ') or
             page.summary.find('eng. ') or
             page.summary.find('engl. ') or
-            page.summary.find('bzw. ') or
-            page.summary.find('TODO ergänzen')) << 230:
+            page.summary.find('bzw. ') < 230: #TODO beliebig ergänzen
             index = -1 # TODO Intelligenter machen für sehr sehr seltene Fälle
         else:
             index = 1 + page.summary.find('. ')

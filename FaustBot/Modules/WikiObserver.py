@@ -37,7 +37,7 @@ class WikiObserver(PrivMsgObserverPrototype):
                  'fr. ',
                  'eng. ',
                  'engl. ',
-                 'bzw. '] #TODO beliebig ergänzen
+                 'bzw. '] # TODO beliebig ergänzen
 
         wacky_summary = False
         for item in no_good:

@@ -22,7 +22,7 @@ class WikiObserver(PrivMsgObserverPrototype):
             connection.send_back(data['nick'] +
                                  ', ' +
                                  i18n_server.get_text('wiki_fail',
-                                 lang=self.config.lang),
+                                                      lang=self.config.lang),
                                  data)
             return
         try:

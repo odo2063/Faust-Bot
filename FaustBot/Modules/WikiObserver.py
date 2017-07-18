@@ -18,7 +18,7 @@ class WikiObserver(PrivMsgObserverPrototype):
             if word.strip() != '.w':
                 query += word + ' '
         w = wikipedia.search(query)
-        if w.__len__() == 0:  # TODO BUG BELOW, ERROR MESSAGE NOT SHOWN!
+        if len(w) == 0:  # TODO BUG BELOW, ERROR MESSAGE NOT SHOWN!
             connection.send_back(data['nick'] +
                                  ', ' +
                                  i18n_server.get_text('wiki_fail',

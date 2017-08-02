@@ -38,7 +38,7 @@ class WikiObserver(PrivMsgObserverPrototype):
                  'eng. ',
                  'engl. ',
                  'bzw. ',
-                 '. Januar',
+                 '. Jannuar',
                  '. Februar',
                  '. Maerz',
                  '. März',

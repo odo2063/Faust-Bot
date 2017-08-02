@@ -12,7 +12,7 @@ class GiveDrinkObserver(PrivMsgObserverPrototype):
 
         now = datetime.datetime.now()
 
-        if (( now.hour ) >= 22) or (( now.hour ) < 5): #alternativ nur am Wochenende oder sowas
+        if ((now.hour + 2 ) >= 22) or ((now.hour + 2) < 5): #alternativ nur am Wochenende oder sowas
             print('afterwork')
             connection.send_back('\001ACTION schenkt ' + data['nick'] + ' ' + random.choice(getraenke + getraenke_after_work) + ' ein.\001', data)
         else:

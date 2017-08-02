@@ -36,7 +36,7 @@ class FaustBot(object):
         while -1 is data.find('353'):  # 353 RPL_NAMREPLY
             self._connection.receive()
             data = self._connection.last_data()
-            print(data)
+            #print(data)
         self.add_module(user_list)
         self.add_module(activity)
         # self._connection._join.input_names(data)
